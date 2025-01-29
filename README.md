@@ -2,13 +2,13 @@
 ### Chicken coccidiosis is a disease caused by a microscopic parasite that damages the intestines of chickens. It can lead to malnutrition, dehydration, and blood loss, and can be fatal.
 
 ### Symptoms
-• Diarrhea 
-• Blood in the feces 
-• Mucus in the feces 
-• Depression 
-• Ruffled feathers 
-• Pale skin 
-• Weight loss 
+    • Diarrhea 
+    • Blood in the feces 
+    • Mucus in the feces 
+    • Depression 
+    • Ruffled feathers 
+    • Pale skin 
+    • Weight loss 
 
 ### Transmission
     • Coccidiosis is transmitted through the oral-fecal route.
