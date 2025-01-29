@@ -23,4 +23,4 @@
     • Disinfectants like steam cleaning, boiling water, or a 10% ammonia solution 
 
 ### Prevention
-• Healthy chickens build up immunity to the parasite, which prevents infection. 
+    • Healthy chickens build up immunity to the parasite, which prevents infection. 
