@@ -169,3 +169,14 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+
+# Ignores from this projects
+template.py
+venv
+__pycache__
+.env
+notebook
+logs
+artifacts
+*.egg-info
