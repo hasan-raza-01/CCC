@@ -1,0 +1,24 @@
+data:
+  ingestion:
+    dir_path: artifacts/data/ingestion
+    source_uri: https://github.com/entbappy/Branching-tutorial/raw/master/Chicken-fecal-images.zip
+    zip_file_path: artifacts/data/ingestion/data.zip
+    raw_data_dir: artifacts/data/ingestion/raw
+    training_data_dir: artifacts/data/ingestion/training/
+    testing_data_dir: artifacts/data/ingestion/testing
+    train_data_dir: artifacts/data/ingestion/train
+    val_data_dir: artifacts/data/ingestion/val
+
+  preprocessing:
+    dir_path: artifacts/data/preprocessing
+    train_data_dir: artifacts/data/preprocessing/train/
+    val_data_dir: artifacts/data/preprocessing/val/
+    test_data_dir: artifacts/data/preprocessing/test/
+
+
+callbacks:
+  dir_path: artifacts/model/callbacks
+  tensorboard_dir: artifacts/model/callbacks/tensorboard_dir
+
+
+  

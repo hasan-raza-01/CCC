@@ -1,0 +1,31 @@
+stages:
+  data_ingestion:
+    cmd: python src/package/pipeline/stage_01_data_ingestion.py
+    deps:
+      - src/package/pipeline/stage_01_data_ingestion.py
+      - config/config.yaml
+    outs:
+      - artifacts/data/ingestion/raw/Chicken-fecal-images
+
+
+  data_preprocessing:
+    cmd: python src/package/pipeline/stage_02_data_preprocessing.py
+    deps:
+      - src/package/pipeline/stage_02_data_preprocessing.py
+      - config/config.yaml
+    outs:
+      - artifacts/data/preprocessing
+
+  
+
+  evaluation:
+    cmd: python src/package/pipeline/stage_03_train_and_eval.py
+    deps:
+      - src/package/pipeline/stage_03_train_and_eval.py
+      - config/config.yaml
+      - artifacts/data/preprocessing/train
+      - artifacts/data/preprocessing/test
+      - artifacts/data/preprocessing/val
+    outs:
+      - artifacts/model/model.h5
+    

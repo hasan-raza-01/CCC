@@ -1,0 +1,67 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src/package/pipeline/stage_01_data_ingestion.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: 11a45ba0b9194492d08c3a0de4a9d9de
+      size: 830
+    - path: src/package/pipeline/stage_01_data_ingestion.py
+      hash: md5
+      md5: f83af50d525b98a866cc1cf941f9d704
+      size: 1255
+    outs:
+    - path: artifacts/data/ingestion/raw/Chicken-fecal-images
+      hash: md5
+      md5: 9e1f8dd2eae3c29e9d635df89d438ae4.dir
+      size: 12207807
+      nfiles: 390
+  data_preprocessing:
+    cmd: python src/package/pipeline/stage_02_data_preprocessing.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: 11a45ba0b9194492d08c3a0de4a9d9de
+      size: 830
+    - path: src/package/pipeline/stage_02_data_preprocessing.py
+      hash: md5
+      md5: 66965e6c89801f60481bb74c43aa6300
+      size: 1070
+    outs:
+    - path: artifacts/data/preprocessing
+      hash: md5
+      md5: acc7969cfb7c40bf91cac3136c4d75cb.dir
+      size: 204720208
+      nfiles: 6
+  evaluation:
+    cmd: python src/package/pipeline/stage_03_train_and_eval.py
+    deps:
+    - path: artifacts/data/preprocessing/test
+      hash: md5
+      md5: 14f73d652ad5f63bb2a608e5aa8a8480.dir
+      size: 60211856
+      nfiles: 2
+    - path: artifacts/data/preprocessing/train
+      hash: md5
+      md5: 2879b3205cc5fc94b46c17ef0fd7c42b.dir
+      size: 120423456
+      nfiles: 2
+    - path: artifacts/data/preprocessing/val
+      hash: md5
+      md5: 9280c4bf918398d1cf9d3fd5657b02f4.dir
+      size: 24084896
+      nfiles: 2
+    - path: config/config.yaml
+      hash: md5
+      md5: 11a45ba0b9194492d08c3a0de4a9d9de
+      size: 830
+    - path: src/package/pipeline/stage_03_train_and_eval.py
+      hash: md5
+      md5: 3428854d2515eed37783f56aac333ef5
+      size: 1029
+    outs:
+    - path: artifacts/model/model.h5
+      hash: md5
+      md5: 692b718e709cbbf580827b5b666a3c04
+      size: 193821848
