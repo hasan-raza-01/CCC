@@ -91,9 +91,9 @@ class ModelEvaluation:
                 infer_signature = mlflow.models.infer_signature(X_train, best_model.predict(X_train))
 
                 # connecting with dagshub repository
-                dagshub.init(repo_owner='Md-hasan-1', repo_name='Chicken-Coccidiosis-Classification', mlflow=True)
+                dagshub.init(repo_owner='hasan-raza-01', repo_name='CCC', mlflow=True)
                 
-                uri = "https://dagshub.com/Md-hasan-1/Chicken-Coccidiosis-Classification.mlflow"
+                uri = "https://dagshub.com/hasan-raza-01/CCC.mlflow/"
                 mlflow.set_tracking_uri(uri)
                 
                 tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
