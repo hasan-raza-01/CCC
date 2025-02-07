@@ -61,6 +61,9 @@ class ModelEvaluation:
                         validation_data=(X_val, y_val),
                         callbacks = [early_stoping, tensorboard]
                         )
+
+            # connecting with dagshub repository
+            dagshub.init(repo_owner='hasan-raza-01', repo_name='CCC', mlflow=True)
             
             with mlflow.start_run():
                 best_model = tuner.get_best_models()[0]
@@ -89,9 +92,6 @@ class ModelEvaluation:
                 mlflow.log_params(best_hps.values)
 
                 infer_signature = mlflow.models.infer_signature(X_train, best_model.predict(X_train))
-
-                # connecting with dagshub repository
-                dagshub.init(repo_owner='hasan-raza-01', repo_name='CCC', mlflow=True)
                 
                 uri = "https://dagshub.com/hasan-raza-01/CCC.mlflow/"
                 mlflow.set_tracking_uri(uri)
