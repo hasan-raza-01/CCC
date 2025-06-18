@@ -176,7 +176,6 @@ template.py
 venv
 __pycache__
 .env
-notebook
 logs
 artifacts
 *.egg-info
