@@ -76,7 +76,7 @@ Chicken coccidiosis is a disease caused by a microscopic parasite that damages t
 - **DVC**  
   Tracks and version‑controls datasets and model artifacts (`.dvc`, `dvc.yaml`, `dvc.lock`).
 - **Docker**  
-  - **Dockerfile**: Builds a slim‑based Python 3.11 image, installs dependencies, and sets `uv run app.py` as the entrypoint.
+  Dockerfile Builds a slim‑based Python 3.11 image, installs dependencies, and sets `uv run app.py` as the entrypoint.
 - **Azure Container Registry (ACR)**  
   Securely stores and manages your Docker images in Azure.
 - **Azure Web App for Containers**  
