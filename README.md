@@ -72,13 +72,15 @@ Chicken coccidiosis is a disease caused by a microscopic parasite that damages t
 ## 🚀 Deployment & CI/CD
 
 - **GitHub Actions**  
-  Automated DVC pulls, linting, testing, and Docker builds in `.github/workflows/`.  
+  Automated DVC pulls, linting, testing, and Docker builds in `.github/workflows/`.
 - **DVC**  
-  Tracks and version-controls datasets and model artifacts (`.dvc`, `dvc.yaml`, `dvc.lock`).  
+  Tracks and version‑controls datasets and model artifacts (`.dvc`, `dvc.yaml`, `dvc.lock`).
 - **Docker**  
-  - **Dockerfile**: Builds a slim‑based Python 3.11 image, installs dependencies, and sets `uv run app.py` as the entrypoint.  
-- **Environment‑Driven Configuration**  
-  Store sensitive URIs and hyperparameters via environment variables or a `.env` file (e.g., DVC remote credentials).
+  - **Dockerfile**: Builds a slim‑based Python 3.11 image, installs dependencies, and sets `uv run app.py` as the entrypoint.
+- **Azure Container Registry (ACR)**  
+  Securely stores and manages your Docker images in Azure.
+- **Azure Web App for Containers**  
+  Deploys container images directly from ACR, offering auto‑scaling, built‑in load balancing, and fully managed hosting.
 
 ---
 
