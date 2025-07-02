@@ -7,6 +7,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'README.md'
   workflow_dispatch:
 
 jobs:
@@ -49,3 +51,7 @@ jobs:
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_1f9830718ad247a2b7daa54585cdb13a }}
         images: 'mychickenapp.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_6b5c2af2cbdc4105a568ee19cd8e8d7f }}/chicken:${{ github.sha }}'
+    
+    - name: Clean previous images, containers and volumes
+      run: docker system prune -af
+
