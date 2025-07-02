@@ -1,0 +1,9 @@
+# Ignores from this projects
+template.py
+.venv/
+__pycache__
+.env
+logs
+artifacts
+*.egg-info
+notebook/

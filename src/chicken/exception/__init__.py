@@ -1,5 +1,5 @@
 import sys
-from package.logger import logging
+from chicken.logger import logging
 
 def get_mssg(mssg, sys_obj):
     _, _, exc_traceback = sys_obj.exc_info()

@@ -1,4 +1,4 @@
-from package.constants import CONFIG_YAML
+from chicken.constants import CONFIG_YAML
 from dataclasses import dataclass
 
 

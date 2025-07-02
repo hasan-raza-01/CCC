@@ -1,7 +1,7 @@
-from package.configuration import ModelEvaluationConfig, DataPreprocessingConfig
-from package.components.model_evaluation import ModelEvaluation
-from package.logger import logging
-from package.exception import CustomException
+from chicken.configuration import ModelEvaluationConfig, DataPreprocessingConfig
+from chicken.components.model_evaluation import ModelEvaluation
+from chicken.logger import logging
+from chicken.exception import CustomException
 import sys
 
 

@@ -1,7 +1,7 @@
 from keras.applications.vgg16 import VGG16 # type: ignore
 from keras import layers, models
-from package.exception import CustomException
-from package.logger import logging
+from chicken.exception import CustomException
+from chicken.logger import logging
 from dataclasses import dataclass
 import sys
 

@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 from typing import List
 
-package_name = "package"
+package_name = "Chicken-Coccidiosis"
 version = "0.0.1"
 
 with open("README.md", "r", encoding="utf-8") as file_obj:

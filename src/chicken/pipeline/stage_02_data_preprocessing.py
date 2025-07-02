@@ -1,7 +1,7 @@
-from package.configuration import DataIngestionConfig, DataPreprocessingConfig
-from package.components.data_preprocessing import DataPreprocessing
-from package.logger import logging
-from package.exception import CustomException
+from chicken.configuration import DataIngestionConfig, DataPreprocessingConfig
+from chicken.components.data_preprocessing import DataPreprocessing
+from chicken.logger import logging
+from chicken.exception import CustomException
 import sys
 
 

@@ -1,14 +1,14 @@
-mlflow
 dagshub
+mlflow==2.7.1
 dvc
-bentoml
+bentoml<1.4.17
 python-dotenv
 ipykernel
 tensorflow
 pandas 
 dvc
 notebook
-numpy
+numpy<1.26
 matplotlib
 seaborn
 python-box==6.0.2

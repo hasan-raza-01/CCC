@@ -1,9 +1,9 @@
 import sys
-from package.logger import logging
-from package.exception import CustomException
-from package.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
-from package.pipeline.stage_02_data_preprocessing import DataPreprocessingTrainingPipeline
-from package.pipeline.stage_03_train_and_eval import EvaluationPipeline
+from chicken.logger import logging
+from chicken.exception import CustomException
+from chicken.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
+from chicken.pipeline.stage_02_data_preprocessing import DataPreprocessingTrainingPipeline
+from chicken.pipeline.stage_03_train_and_eval import EvaluationPipeline
 
 
 STAGE_NAME = "Data Ingestion stage"

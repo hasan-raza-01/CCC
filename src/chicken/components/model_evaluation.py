@@ -1,12 +1,12 @@
-from package.entity import DataPreprocessingConfigEntity
-from package.entity import ModelEvaluationConfigEntity
-from package.components.model_trainer import ModelTrainer
-from package.exception import CustomException
+from chicken.entity import DataPreprocessingConfigEntity
+from chicken.entity import ModelEvaluationConfigEntity
+from chicken.components.model_trainer import ModelTrainer
+from chicken.exception import CustomException
 from keras.callbacks import EarlyStopping, TensorBoard # type: ignore
-from package.utils import create_dirs
+from chicken.utils import create_dirs
 from urllib.request import urlparse
 from dataclasses import dataclass
-from package.logger import logging
+from chicken.logger import logging
 from retrying import retry
 from pathlib import Path
 import mlflow, bentoml
@@ -97,22 +97,28 @@ class ModelEvaluation:
                 mlflow.set_tracking_uri(uri)
                 
                 tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
-
-                if tracking_url_type_store != "file":
-                    mlflow.keras.log_model(best_model, "VGG16",
-                                           registered_model_name="VGG16", 
-                                           signature=infer_signature
-                                    )
-                else:
-                    mlflow.keras.log_model(best_model, "VGG16", 
-                                           signature=infer_signature
-                                    )
+                try:
+                    if tracking_url_type_store != "file":
+                        mlflow.tensorflow.log_model(best_model, "VGG16",
+                                            registered_model_name="VGG16", 
+                                            signature=infer_signature
+                                        )
+                    else:
+                        mlflow.tensorflow.log_model(best_model, "VGG16", 
+                                            signature=infer_signature
+                                        )
+                except Exception as e:
+                    logging.exception(f"Unable to log model to mlflow due to {{{e}}}")
 
                 # saving model locally
-                bentoml.keras.save_model("VGG16", best_model)
+                try:
+                    bentoml.keras.save_model("VGG16", best_model)
+                except Exception as e:
+                    logging.exception(f"Unable to save model to bentoml store due to {{{e}}}")
 
                 # saving model locally
                 best_model.save("artifacts/model/model.h5")
+                logging.info("saved model to local folder")
 
             logging.info("Model Evaluation completed")
         except Exception as e:

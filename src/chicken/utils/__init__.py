@@ -1,5 +1,5 @@
-from package.exception import CustomException
-from package.logger import logging
+from chicken.exception import CustomException
+from chicken.logger import logging
 from box import ConfigBox
 from pathlib import Path
 import pickle

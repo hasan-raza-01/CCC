@@ -1,7 +1,7 @@
-from package.exception import CustomException
-from package.logger import logging
-from package.configuration import DataIngestionConfig
-from package.components.data_ingestion import DataIngestion
+from chicken.exception import CustomException
+from chicken.logger import logging
+from chicken.configuration import DataIngestionConfig
+from chicken.components.data_ingestion import DataIngestion
 import sys
 
 

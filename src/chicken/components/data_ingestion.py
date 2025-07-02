@@ -1,11 +1,11 @@
-from package.utils import create_dirs
-from package.exception import CustomException
-from package.logger import logging
+from chicken.utils import create_dirs
+from chicken.exception import CustomException
+from chicken.logger import logging
 from dataclasses import dataclass
 from urllib.request import urlretrieve
 from  zipfile import ZipFile
 from tensorflow.data import Dataset # type: ignore
-from package.entity import DataIngestionConfigEntity
+from chicken.entity import DataIngestionConfigEntity
 import keras
 import sys
 import os
