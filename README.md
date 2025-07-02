@@ -9,6 +9,30 @@ An end-to-end, AI-driven pipeline for automated detection and classification of 
 
 ---
 
+## 📂 Repository Structure 
+``` 
+.
+├── .dvc/                          # DVC configuration for data/model versioning
+├── .github/workflows/             # CI/CD pipelines
+├── src/
+│   └── chicken/
+│       ├── configuration.py       # Pipeline configs
+│       ├── components/            # Data ingestion/preprocessing/training modules
+│       ├── exception.py           # Custom exception classes
+│       ├── logger.py              # Logging setup
+│       ├── pipeline/              # Training & prediction pipelines
+│       └── utils/                 # Image decoding, helpers
+├── templates/                     # Flask HTML templates
+├── Dockerfile                     # Containerization spec
+├── dvc.yaml                       # Pipeline stages definition
+├── dvc.lock                       # Locked version of DVC stages
+├── requirements.txt               # Python dependencies
+├── setup.py                       # Package configuration
+├── app.py                         # Flask application entrypoint
+└── main.py                        # Orchestrates data ingestion, preprocessing, training
+
+```
+
 ## 🔧 Core Workflow
 
 1. **Data Ingestion**  
@@ -127,28 +151,3 @@ Chicken coccidiosis is a disease caused by a microscopic parasite that damages t
     ```
 5. **Interact via browser** 
     - Navigate to http://localhost:8080/ to upload images and view predictions.
-
----
-
-## 📂 Repository Structure 
-``` 
-.
-├── .dvc/                          # DVC configuration for data/model versioning
-├── .github/workflows/             # CI/CD pipelines
-├── src/
-│   └── chicken/
-│       ├── configuration.py       # Pipeline configs
-│       ├── components/            # Data ingestion/preprocessing/training modules
-│       ├── exception.py           # Custom exception classes
-│       ├── logger.py              # Logging setup
-│       ├── pipeline/              # Training & prediction pipelines
-│       └── utils/                 # Image decoding, helpers
-├── templates/                     # Flask HTML templates
-├── Dockerfile                     # Containerization spec
-├── dvc.yaml                       # Pipeline stages definition
-├── dvc.lock                       # Locked version of DVC stages
-├── requirements.txt               # Python dependencies
-├── setup.py                       # Package configuration
-├── app.py                         # Flask application entrypoint
-└── main.py                        # Orchestrates data ingestion, preprocessing, training
-```
