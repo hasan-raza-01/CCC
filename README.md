@@ -109,9 +109,9 @@ Chicken coccidiosis is a disease caused by a microscopic parasite that damages t
 ---
 
 ## Required Environment Variables
-    ```bash
-    DAGSHUB_USER_TOKEN=""
-    ```
+ ```bash
+ DAGSHUB_USER_TOKEN=""
+ ```
 
 ---
 
