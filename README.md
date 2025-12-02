@@ -9,6 +9,14 @@ An end-to-end, AI-driven pipeline for automated detection and classification of 
 
 ---
 
+## 📊 Project Workflow
+
+![Project Workflow](./screenshots/workflow.png)
+
+*Complete end-to-end pipeline from data ingestion to deployment*
+
+---
+
 ## 📂 Repository Structure 
 ``` 
 .
