@@ -12,25 +12,58 @@ An end-to-end, AI-driven pipeline for automated detection and classification of 
 ## 📂 Repository Structure 
 ``` 
 .
-├── .dvc/                          # DVC configuration for data/model versioning
-├── .github/workflows/             # CI/CD pipelines
+├── .dvc/                      # DVC configuration & cache for data version control
+├── .github/
+│   └── workflows/             # CI/CD pipeline workflows for automated deployment
+├── config/
+│   └── config.yaml            # Project configuration: artifact paths, model settings, training parameters
+├── notebook/
+│   └── trail.ipynb            # Experimental trials and prototyping
+├── screenshots/               # Project screenshots and demo images
 ├── src/
-│   └── chicken/
-│       ├── configuration.py       # Pipeline configs
-│       ├── components/            # Data ingestion/preprocessing/training modules
-│       ├── exception.py           # Custom exception classes
-│       ├── logger.py              # Logging setup
-│       ├── pipeline/              # Training & prediction pipelines
-│       └── utils/                 # Image decoding, helpers
-├── templates/                     # Flask HTML templates
-├── Dockerfile                     # Containerization spec
-├── dvc.yaml                       # Pipeline stages definition
-├── dvc.lock                       # Locked version of DVC stages
-├── requirements.txt               # Python dependencies
-├── setup.py                       # Package configuration
-├── app.py                         # Flask application entrypoint
-└── main.py                        # Orchestrates data ingestion, preprocessing, training
-
+│   └── chicken/               # Main package source code
+│       ├── __init__.py
+│       ├── cloud/
+│       │   └── __init__.py    # Cloud storage operations (S3, GCS)
+│       ├── components/        # Core ML pipeline components
+│       │   ├── __init__.py
+│       │   ├── data_ingestion.py       # Downloads and extracts chicken disease dataset
+│       │   ├── data_preprocessing.py   # Prepares images: resizing, normalization, augmentation
+│       │   ├── model_trainer.py        # Trains CNN model for disease classification
+│       │   └── model_evaluation.py     # Evaluates model: accuracy, loss, confusion matrix
+│       ├── configuration/
+│       │   └── __init__.py    # Configuration manager: reads config.yaml, creates entity objects
+│       ├── constants/
+│       │   └── __init__.py    # Project constants: file paths, class names, environment variables
+│       ├── entity/
+│       │   └── __init__.py    # Dataclass entities: artifact and configuration objects
+│       ├── exception/
+│       │   └── __init__.py    # Custom exception handling with detailed error messages
+│       ├── logger/
+│       │   └── __init__.py    # Structured logging setup with timestamps
+│       ├── pipeline/          # Orchestration layer for training and prediction pipelines
+│       │   ├── __init__.py
+│       │   ├── stage_01_data_ingestion.py      # Orchestrates data ingestion component
+│       │   ├── stage_02_data_preprocessing.py  # Orchestrates data preprocessing component
+│       │   ├── stage_03_train_and_eval.py      # Orchestrates training and evaluation components
+│       │   └── prediction_pipeline/
+│       │       └── __init__.py    # Prediction pipeline: loads model and classifies chicken images
+│       └── utils/
+│           └── __init__.py    # Utility functions: YAML I/O, image operations, common helpers
+├── templates/
+│   └── index.html             # Web interface for image upload and disease classification
+├── .dockerignore              # Excludes unnecessary files from Docker image build
+├── .dvcignore                 # Files ignored by DVC version control
+├── .gitignore                 # Git exclusions: virtual environments, artifacts, model weights
+├── Dockerfile                 # Container image for production deployment
+├── README.md                  # Project documentation and setup instructions
+├── app.py                     # Flask application: /predict endpoint for disease classification
+├── dvc.lock                   # DVC lock file: ensures reproducibility with artifact hashes
+├── dvc.yaml                   # DVC pipeline definition: stages, dependencies, and outputs
+├── inputImage.jpg             # Sample input image for testing
+├── main.py                    # Training pipeline orchestrator: runs all 3 stages via DVC
+├── requirements.txt           # Python dependencies: TensorFlow/PyTorch, Flask, DVC
+└── setup.py                   # Package installer: configures package for pip installation
 ```
 
 ## 🔧 Core Workflow
